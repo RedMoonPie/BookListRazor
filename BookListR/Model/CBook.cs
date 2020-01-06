@@ -13,6 +13,7 @@ namespace BookListR.Model
 
         public string Author { get; set; }
 
+        public string ISBN { get; set; }
     }
 
 

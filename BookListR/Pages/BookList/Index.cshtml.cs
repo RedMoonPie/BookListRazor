@@ -19,7 +19,7 @@ namespace BookListR.Pages.BookList
         }
 
         public IEnumerable<CBook> Books { get; set; }
-        public async Task OnGet()
+        public async Task OnGetAsync()
         {
             // we are going to database and retrieving all of the books storing them in the Ienumerable all of this inside the get handler
             Books = await _db.Book.ToListAsync(); 
