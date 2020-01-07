@@ -24,5 +24,17 @@ namespace BookListR.Pages.BookList
             // we are going to database and retrieving all of the books storing them in the Ienumerable all of this inside the get handler
             Books = await _db.Book.ToListAsync(); 
         }
+        //Handler delete
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            var book = await _db.Book.FindAsync(id);
+            if(book == null)
+            {
+                return NotFound();
+            }
+            _db.Book.Remove(book);
+            await _db.SaveChangesAsync();
+            return RedirectToPage("Index");
+        }
     }
 } 

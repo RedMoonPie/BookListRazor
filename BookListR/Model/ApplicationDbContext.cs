@@ -9,6 +9,7 @@ namespace BookListR.Model
 
         }
         public DbSet<CBook> Book { get; set; }
+        public DbSet<CMovie> Movie { get; set; }
 
     }
 }
