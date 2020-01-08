@@ -27,9 +27,12 @@ namespace BookListR
         {
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddRazorPages().AddRazorRuntimeCompilation();
+            //api callss
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        //middleware
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -51,7 +54,9 @@ namespace BookListR
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
-            {
+            { //mapping controllers
+                endpoints.MapControllers();
+
                 endpoints.MapRazorPages();
             });
         }
